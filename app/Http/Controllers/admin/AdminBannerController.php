@@ -8,6 +8,7 @@ use App\Models\BannerModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Appointments;
+use App\Models\CalendarEvents;
 
 class AdminBannerController extends Controller
 {
@@ -19,6 +20,8 @@ class AdminBannerController extends Controller
         $data['un_assigned'] = count($un_assigned);
         $cancelled = Appointments::where('appearance_status', 2)->get();
         $data['cancelled'] = count($cancelled);
+
+        $data['calendar_events'] = count(CalendarEvents::where('status', 0)->get());
 
         return view('admin.dashboard', $data);
     }

@@ -77,13 +77,13 @@
                                     <label for="textarea">Reason</label>
                                     <textarea class="form-control" placeholder="Enter your message..." id="textarea" rows="4" required readonly name="reason">{{ $appointment->reason }}</textarea>
                                 </div>
-                                <!-- <div class="my-4">
+                                <div class="my-4">
                                     <label for="textarea">Select Appearance</label>
                                     <select name="appearance_status" class="form-select">
                                         <option {{ $appointment->appearance_status == 0 ? 'selected' : '' }} value="0">Assigned</option>
                                         <option {{ $appointment->appearance_status == 1 ? 'selected' : '' }} value="1">Un-assigned</option>
                                     </select>
-                                </div> -->
+                                </div>
                                 <div class="my-4">
                                     <button class="btn btn-pill btn-outline-success" type="submit">Update</button>
                                 </div>

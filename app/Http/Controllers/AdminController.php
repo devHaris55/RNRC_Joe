@@ -37,8 +37,8 @@ class AdminController extends Controller
     public function cancel_appointment(Appointments $id)
     {
         //Deleting event from Google calendar
-        $event = Event::find($id->event_id);
-        $event->delete();
+        // $event = Event::find($id->event_id);
+        // $event->delete();
 
         //Updating Appointment table in our database 
         $id->event_id = null;
@@ -50,8 +50,8 @@ class AdminController extends Controller
         // sending data to admin page
         $data['assigned'] = Appointments::where('appearance_status', 0)->get();
         $data['un_assigned'] = Appointments::where('appearance_status', 1)->get();
-        $data['canceled'] = Appointments::where('appearance_status', 2)->get();
-        return view('admin.cancelled.cancelled-list', $data)->with('error','Appointment Canceled successfully');
+        $data['cancelled'] = Appointments::where('appearance_status', 2)->get();
+        return view('admin.cancelled.cancelled-list', $data)->with('error','Appointment Cancelled successfully');
     }
 
     public function appointment_edit(Appointments $id)
@@ -60,7 +60,7 @@ class AdminController extends Controller
         //To select the value in dropdown
         $data['start_time'] = explode(' ',$id->start_time);
         $data['end_time'] = explode(' ',$id->end_time);
-        return view('admin.assigned.assigned-edit', $data);
+        return view('admin.assigned.assigned-edit', $data)->with('success','Appointment Edited successfully');;
     }
 
     public function update_appointment(Request $request, Appointments $id)
@@ -118,12 +118,16 @@ class AdminController extends Controller
                     }
                     if(!$check)
                     {
+// ---------------------------------------------------------------------------------------------------------------------------------------------
                         /*sending data to google calendar*/
-                        $event = new Event();
-                        $event->name = 'Appointment schedule';
-                        $event->startDateTime = Carbon::parse($request->date.' '. $request->start_time,'Asia/Karachi');
-                        $event->endDateTime = Carbon::parse($request->date.' '. $request->end_time,'Asia/Karachi');
-                        $eventData = $event->save();
+                        // $event = new Event();
+                        // $event->name = 'Appointment schedule';
+                        // $event->startDateTime = Carbon::parse($request->date.' '. $request->start_time,'Asia/Karachi');
+                        // $event->endDateTime = Carbon::parse($request->date.' '. $request->end_time,'Asia/Karachi');
+                        // $eventData = $event->save();
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+
                         /*sending data to Appointments table*/
                         $schedule_appointment = new Appointments();
                         $schedule_appointment->first_name = $request->first_name;
@@ -136,7 +140,8 @@ class AdminController extends Controller
                         // progress_status 0:processing    1:pending   2:completed    3:rejected
                         $schedule_appointment->progress_status = 0;
                         $schedule_appointment->appearance_status = 0;
-                        $schedule_appointment->event_id = $eventData->id;
+                        // $schedule_appointment->event_id = $eventData->id;
+                        $schedule_appointment->event_id = null;
                         $schedule_appointment->save();
                         // return back()->with('success','Appointment done successfully');
                         $data['assigned'] = Appointments::where('appearance_status', 0)->get();
@@ -203,12 +208,15 @@ class AdminController extends Controller
                 }
                 if(!$check)
                 {
+// ---------------------------------------------------------------------------------------------------------------------------------------------
                     /*sending data to google calendar*/
-                    $event = new Event();
-                    $event->name = 'Appointment schedule';
-                    $event->startDateTime = Carbon::parse($request->date.' '. $request->start_time,'Asia/Karachi');
-                    $event->endDateTime = Carbon::parse($request->date.' '. $request->end_time,'Asia/Karachi');
-                    $eventData = $event->save();
+                    // $event = new Event();
+                    // $event->name = 'Appointment schedule';
+                    // $event->startDateTime = Carbon::parse($request->date.' '. $request->start_time,'Asia/Karachi');
+                    // $event->endDateTime = Carbon::parse($request->date.' '. $request->end_time,'Asia/Karachi');
+                    // $eventData = $event->save();
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+                  
                     /*sending data to Appointments table*/
                     $schedule_appointment = $id;
                     $schedule_appointment->first_name = $request->first_name;
@@ -221,7 +229,8 @@ class AdminController extends Controller
                     // progress_status 0:processing    1:pending   2:completed    3:rejected
                     $schedule_appointment->progress_status = 0;
                     $schedule_appointment->appearance_status = 0;
-                    $schedule_appointment->event_id = $eventData->id;
+                    // $schedule_appointment->event_id = $eventData->id;
+                    $schedule_appointment->event_id = null;
                     $schedule_appointment->save();
                     // return back()->with('success','Appointment done successfully');
                     $data['assigned'] = Appointments::where('appearance_status', 0)->get();
@@ -302,15 +311,18 @@ class AdminController extends Controller
                     }
                     if(!$check)
                     {
-                        //Deleting previous event
-                        $pre_event = Event::find($id->event_id);
-                        $pre_event->delete();
-                        /*sending data to google calendar*/
-                        $event = new Event();
-                        $event->name = 'Appointment schedule';
-                        $event->startDateTime = Carbon::parse($request->date.' '. $request->start_time,'Asia/Karachi');
-                        $event->endDateTime = Carbon::parse($request->date.' '. $request->end_time,'Asia/Karachi');
-                        $eventData = $event->save();
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+                        // //Deleting previous event
+                        // $pre_event = Event::find($id->event_id);
+                        // $pre_event->delete();
+                        // /*sending data to google calendar*/
+                        // $event = new Event();
+                        // $event->name = 'Appointment schedule';
+                        // $event->startDateTime = Carbon::parse($request->date.' '. $request->start_time,'Asia/Karachi');
+                        // $event->endDateTime = Carbon::parse($request->date.' '. $request->end_time,'Asia/Karachi');
+                        // $eventData = $event->save();
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+
                         /*sending data to Appointments table*/
                         $id->date = $request->date;
                         $id->start_time = Carbon::parse($request->date.' '.$request->start_time);
@@ -318,7 +330,8 @@ class AdminController extends Controller
                         // progress_status 0:processing    1:pending   2:completed    3:rejected
                         $id->progress_status = 0;
                         $id->appearance_status = 0;
-                        $id->event_id = $eventData->id;
+                        // $id->event_id = $eventData->id;
+                        $id->event_id = null;
                         $id->save();
                         // return back()->with('success','Appointment done successfully');
                         $data['assigned'] = Appointments::where('appearance_status', 0)->get();

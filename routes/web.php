@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\AdminProductDetailsController;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CalendarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,12 @@ Route::get('/a', function () {
 Route::get('/', [UserController::class, 'index'])->name('U_index');
 Route::get('/user', [UserController::class, 'appointment_schedule'])->name('U_appointment_schedule');
 
+// Calendar Events
+Route::get('/admin/calendar-list', [CalendarController::class, 'index'])->name('admin_calendar');
+Route::get('/admin/calendar-add', [CalendarController::class, 'add_calendar'])->name('admin_calendar_add');
+Route::post('/admin/calendar-update', [CalendarController::class, 'update_calendar'])->name('admin_calendar_update');
+Route::get('/admin/calendar-delete/{id?}', [CalendarController::class, 'delete_calendar'])->name('admin_calendar_delete');
+
 Route::get('/admin-panel', [AdminController::class, 'index'])->name('U_admin_panel');
 
 Route::get('/cancel-appointment/{id}', [AdminController::class, 'cancel_appointment'])->name('A_cancel_appointment');
@@ -43,6 +50,8 @@ Route::post('/admin/appointment-add-edit/{id?}', [AdminController::class, 'updat
 Route::get('/admin/banner-delete/{id?}', [AdminController::class, 'cancel_appointment'])->name('admin_assigned_delete');
 
 Route::get('/admin/cancelled-appointment-list', [AdminController::class, 'cancelledIndex'])->name('admin_cancelled');
+
+
 // Route::get('/admin/appointment-edit/{id?}', [AdminController::class, 'appointment_edit'])->name('admin_cancelled_edit');
 // Route::post('/admin/appointment-add-edit/{id?}', [AdminController::class, 'update_appointment'])->name('admin_cancelled_add_edit');
 // Route::get('/admin/banner-delete/{id?}', [AdminController::class, 'cancel_appointment'])->name('admin_cancelled_delete');

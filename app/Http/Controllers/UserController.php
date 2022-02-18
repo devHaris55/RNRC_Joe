@@ -9,11 +9,58 @@ use Spatie\GoogleCalendar\Event;
 
 class UserController extends Controller
 {
+    public function appointment_schedule(Request $request)
+    {
+        $req_start_date = Carbon::parse($request->date. ''. $request->start_time);
+        $req_end_date = Carbon::parse($request->date. ''. $request->end_time);
+        $req_hours = $req_start_date->diffInHours($req_end_date);
+
+        $emailExist = Appointments::where('email', $request->email)
+        // appearance_status 0:assigned    1:un_assigned   2:cancelled
+            ->where('appearance_status', "==", 0)
+            ->first();
+
+        if(!$emailExist)
+        {
+            /*sending data to Appointments table*/
+            $schedule_appointment = new Appointments();
+            $schedule_appointment->first_name = $request->first_name;
+            $schedule_appointment->last_name = $request->last_name;
+            $schedule_appointment->email = $request->email;
+            $schedule_appointment->date = $request->date;
+            $schedule_appointment->start_time = Carbon::parse($request->date.' '.$request->start_time);
+            $schedule_appointment->end_time = Carbon::parse($request->date.' '.$request->end_time);
+            $schedule_appointment->reason = $request->reason;
+            // progress_status 0:processing    1:pending   2:completed    3:rejected
+            $schedule_appointment->progress_status = 0;
+            $schedule_appointment->appearance_status = 0;
+            $schedule_appointment->event_id = null;
+            $schedule_appointment->save();
+            return back()->with('success','Appointment done successfully');
+        } else {
+            return back()->with('warning','You already have an appointment which is not completed yet! Please wait to until it complete.');
+        }
+    }
     public function index()
     {
         return view('index');
     }
-    public function appointment_schedule(Request $request)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // public function appointment_schedule(Request $request)
+    public function rename(Request $request)
     // {
     //     $start_time = explode(':', $request->start_time);
     //     $end_time = explode(':', $request->end_time);
