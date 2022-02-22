@@ -174,8 +174,11 @@
 
 <div class="calendar">
     <!-- <iframe src="https://www.google.com/calendar/embed?title=RNRC%20Event%20Calendar&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=0k77stia9g2ipnmfh4s9s1cl4k%40group.calendar.google.com&amp;color=%232952A3&amp;src=rse65v7s51441rss142rocdgg0%40group.calendar.google.com&amp;color=%2342104A&amp;src=lc5hb0mr4gf0r4vu65forgifuk%40group.calendar.google.com&amp;color=%23A32929&amp;ctz=America%2FNew_York" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
-    <iframe src="https://calendar.google.com/calendar/embed?src=haris.dev55%40gmail.com&ctz=Asia%2FKarachi" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
+      <!-- previous used calendar -->
+      <!-- <iframe src="https://calendar.google.com/calendar/embed?src=haris.dev55%40gmail.com&ctz=Asia%2FKarachi" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+    <!-- Customized Calendar -->
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNorth_Dakota%2FCenter&showTz=0&showTitle=0&showCalendars=0&src=aGFyaXMuZGV2NTVAZ21haWwuY29t&color=%23039BE5" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 </div>
 
 <div class="main">
@@ -236,7 +239,7 @@
             <div class="input_div">
                  <div class="form-group">
                    <label for="exampleInputEmail1">Date  <span>*</span></label>
-                   <input type="date" name="date" min="{{ Carbon\Carbon::now() }}" class="form-control" required id="exampleInputEmail1" >
+                   <input type="date" name="date" min="{{now()->toDateString('Y-m-d')}}" class="form-control" required id="exampleInputEmail1" >
                  </div>
               </div>
             <div class="input_div">
