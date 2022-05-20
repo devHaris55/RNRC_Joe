@@ -31,6 +31,10 @@
                                     <label for="title">Title</label>
                                     <input type="text" class="form-control" required name="title">
                                 </div>
+                                <div class="mb-4">
+                                    <label for="title">Description</label>
+                                    <input type="text" class="form-control" required name="description">
+                                </div>
                                 <div class="my-4">
                                     <label for="textarea">Event Date</label>
                                     <input type="date" name="date" min="{{now()->toDateString('Y-m-d')}}" class="form-control" placeholder="Select date"></input>

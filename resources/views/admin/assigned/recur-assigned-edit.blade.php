@@ -4,13 +4,13 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}"><span class="fas fa-home"></span></a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_assigned')}}">Conflict Request-List</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Conflict Request-Edit</li>
+            <li class="breadcrumb-item"><a href="{{route('admin_assigned')}}">Appointment-List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Appointment-Edit</li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Conflict Request Edit</h1>
+            <h1 class="h4">Appointment Edit</h1>
         </div>
     </div>
 
@@ -51,9 +51,26 @@
                                     <label for="title">Email address</label>
                                     <input type="text" name="email" class="form-control" value="{{ $appointment->email }}" required  id="exampleInputPassword1">
                                 </div>
+                                   <div class="mb-4">
+                                       <label for="title">Does Event Occur On Weekly or Daily Basis</label>
+                                       <div class="form-check">
+                                            <label for="title">Weekly</label>
+                                            <input type="radio" name="event_occur" value="weekly"  required {{$appointment->event_occur=='weekly'? 'checked':''}} >
+                                        </div>
+                                        <div class="form-check">
+                                            <label for="title">Daily</label>
+                                         
+                                            <input type="radio" name="event_occur" value="daily"  required {{$appointment->event_occur=='daily'? 'checked':''}} >
+                                        </div>
+                                </div>
                                 <div class="mb-4">
-                                    <label for="title">Select date</label>
-                                    <input type="date" name="date" min="{{ Carbon\Carbon::now() }}" value="{{ $appointment->date }}" class="form-control" required id="exampleInputEmail1" >
+                                    <label for="title">Select Start date</label>
+                                    <input type="date" name="start_date" min="{{ Carbon\Carbon::now() }}" value="{{ $appointment->start_date }}" class="form-control" required id="exampleInputEmail1" >
+                                </div>
+                                </div>
+                                   <div class="mb-4">
+                                    <label for="title">Select End date</label>
+                                    <input type="date" name="end_date" min="{{ Carbon\Carbon::now() }}" value="{{ $appointment->end_date }}" class="form-control" required id="exampleInputEmail1" >
                                 </div>
                                 <div class="mb-4">
                                 <label for="disabledSelect" required class="form-label">Select start time</label>

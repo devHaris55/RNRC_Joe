@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-12 col-xl-7 px-xl-0">
                         <div class="d-none d-sm-block">
-                            <h2 class="h5">Assigned Appointments</h2>
+                            <h2 class="h5">Assigned Conflict Requests</h2>
                             <h3 class="mb-1">{{ $assigned}}</h3>
                         </div>
                        

@@ -50,7 +50,7 @@ function active($current_page){
         <li class="nav-item {{ active('assigned-list') . active('assigned-add') . active('assigned-edit') }}">
           <a href="{{route('admin_assigned')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-images"></span></span>
-              <span>Assign Appointments</span>
+              <span>Assign Conflict Requests</span>
           </a>
         </li>
         <!-- <li class="nav-item {{ active('un_assigned-list') . active('un_assigned-add') . active('un_assigned-edit') }}">
@@ -62,7 +62,7 @@ function active($current_page){
         <li class="nav-item {{ active('cancelled-list') . active('cancelled-add') . active('cancelled-edit') }}">
           <a href="{{route('admin_cancelled')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-images"></span></span>
-              <span>Cancelled Appointments</span>
+              <span>Cancelled Conflict Requests</span>
           </a>
         </li>
         <li class="nav-item {{ active('calendar-list') . active('calendar-add') . active('calendar-edit') }}">

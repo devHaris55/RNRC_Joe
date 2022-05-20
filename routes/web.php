@@ -28,14 +28,35 @@ Route::get('/a', function () {
     // return view('index');
 });
 
+// ----------------- USER ROUTES --------------- STARTS -----------------------
 Route::get('/', [UserController::class, 'index'])->name('U_index');
-Route::get('/user', [UserController::class, 'appointment_schedule'])->name('U_appointment_schedule');
+Route::post('/user', [UserController::class, 'appointment_schedule'])->name('U_appointment_schedule');
+Route::post('/user-full', [UserController::class, 'full_appointment_schedule'])->name('U_full_day_appointment');
+Route::post('/user-recur', [UserController::class, 'recur_appointment_schedule'])->name('U_recur_day_appointment');
+// ----------------- USER ROUTES --------------- END -----------------------
+
+
+
+
+// ----------------- ADMIN ROUTES --------------- STARTS -----------------------
 
 // Calendar Events
 Route::get('/admin/calendar-list', [CalendarController::class, 'index'])->name('admin_calendar');
 Route::get('/admin/calendar-add', [CalendarController::class, 'add_calendar'])->name('admin_calendar_add');
 Route::post('/admin/calendar-update', [CalendarController::class, 'update_calendar'])->name('admin_calendar_update');
 Route::get('/admin/calendar-delete/{id?}', [CalendarController::class, 'delete_calendar'])->name('admin_calendar_delete');
+
+//Dashboard
+Route::get('/admin/dashboard', [AdminBannerController::class, 'dashboard'])->name('admin_dashboard');
+
+Route::get('/admin/assigned-appointment-list', [AdminController::class, 'assignedIndex'])->name('admin_assigned');
+Route::get('/admin/appointment-edit/{id?}', [AdminController::class, 'appointment_edit'])->name('admin_assigned_edit');
+Route::post('/admin/appointment-add-edit/{id?}', [AdminController::class, 'update_appointment'])->name('admin_assigned_add_edit');
+Route::get('/admin/banner-delete/{id?}', [AdminController::class, 'cancel_appointment'])->name('admin_assigned_delete');
+
+// ----------------- ADMIN ROUTES --------------- END -----------------------
+
+
 
 Route::get('/admin-panel', [AdminController::class, 'index'])->name('U_admin_panel');
 
@@ -44,10 +65,6 @@ Route::get('/edit-appointment/{id}', [AdminController::class, 'edit_appointment'
 Route::get('/update-appointment/{id}', [AdminController::class, 'update_appointment'])->name('A_update_appointment');
 
 
-Route::get('/admin/assigned-appointment-list', [AdminController::class, 'assignedIndex'])->name('admin_assigned');
-Route::get('/admin/appointment-edit/{id?}', [AdminController::class, 'appointment_edit'])->name('admin_assigned_edit');
-Route::post('/admin/appointment-add-edit/{id?}', [AdminController::class, 'update_appointment'])->name('admin_assigned_add_edit');
-Route::get('/admin/banner-delete/{id?}', [AdminController::class, 'cancel_appointment'])->name('admin_assigned_delete');
 
 Route::get('/admin/cancelled-appointment-list', [AdminController::class, 'cancelledIndex'])->name('admin_cancelled');
 
@@ -72,7 +89,7 @@ Route::get('/admin/un-assigned-appointment-list', [AdminController::class, 'un_a
 Route::group(['middleware'=>['protectedPage']], function(){
 
     /**Dashboard Routes */
-        Route::get('/admin/dashboard', [AdminBannerController::class, 'dashboard'])->name('admin_dashboard');
+        // Route::get('/admin/dashboard', [AdminBannerController::class, 'dashboard'])->name('admin_dashboard');
 
     /**Profile Routes */
         Route::get('/admin/profile', [AdminAuthController::class, 'admin_profile'])->name('admin_profile');

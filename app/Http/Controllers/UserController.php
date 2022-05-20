@@ -11,6 +11,7 @@ class UserController extends Controller
 {
     public function appointment_schedule(Request $request)
     {
+       
         $req_start_date = Carbon::parse($request->date. ''. $request->start_time);
         $req_end_date = Carbon::parse($request->date. ''. $request->end_time);
         $req_hours = $req_start_date->diffInHours($req_end_date);
@@ -31,14 +32,80 @@ class UserController extends Controller
             $schedule_appointment->start_time = Carbon::parse($request->date.' '.$request->start_time);
             $schedule_appointment->end_time = Carbon::parse($request->date.' '.$request->end_time);
             $schedule_appointment->reason = $request->reason;
-            // progress_status 0:processing    1:pending   2:completed    3:rejected
-            $schedule_appointment->progress_status = 0;
             $schedule_appointment->appearance_status = 0;
             $schedule_appointment->event_id = null;
+            $schedule_appointment->form_type = $request->form_type;
+            $schedule_appointment->password =$request->password;
             $schedule_appointment->save();
-            return back()->with('success','Appointment done successfully');
+            // Appointment -> Conflict Request
+            return back()->with('success','Conflict Request done successfully');
         } else {
-            return back()->with('warning','You already have an appointment which is not completed yet! Please wait to until it complete.');
+            return back()->with('warning','You already have an Conflict Request which is not completed yet! Please wait to until it complete.');
+        }
+    }
+    public function full_appointment_schedule(Request $request)
+    {
+
+
+
+        $emailExist = Appointments::where('email', $request->email)
+        // appearance_status 0:assigned    1:un_assigned   2:cancelled
+            ->where('appearance_status', "==", 0)
+            ->first();
+
+        if(!$emailExist)
+        {
+            /*sending data to Appointments table*/
+            $schedule_appointment = new Appointments();
+            $schedule_appointment->first_name = $request->first_name;
+            $schedule_appointment->last_name = $request->last_name;
+            $schedule_appointment->email = $request->email;
+            $schedule_appointment->date = $request->date;
+            $schedule_appointment->reason = $request->reason;
+            // progress_status 0:processing    1:pending   2:completed    3:rejected
+            $schedule_appointment->appearance_status = 0;
+            $schedule_appointment->event_id = null;
+            $schedule_appointment->form_type = $request->form_type;
+            $schedule_appointment->save();
+            return back()->with('success','Conflict Request done successfully');
+        } else {
+            return back()->with('warning','You already have an Conflict Request which is not completed yet! Please wait to until it complete.');
+        }
+    }
+    
+    public function recur_appointment_schedule(Request $request)
+    {
+      
+        $req_start_date = Carbon::parse($request->date. ''. $request->start_time);
+        $req_end_date = Carbon::parse($request->date. ''. $request->end_time);
+        $req_hours = $req_start_date->diffInHours($req_end_date);
+
+        $emailExist = Appointments::where('email', $request->email)
+        // appearance_status 0:assigned    1:un_assigned   2:cancelled
+            ->where('appearance_status', "==", 0)
+            ->first();
+
+        if(!$emailExist)
+        {
+            /*sending data to Appointments table*/
+            $schedule_appointment = new Appointments();
+            $schedule_appointment->first_name = $request->first_name;
+            $schedule_appointment->last_name = $request->last_name;
+            $schedule_appointment->email = $request->email;
+            $schedule_appointment->start_time = Carbon::parse($request->date.' '.$request->start_time);
+            $schedule_appointment->end_time = Carbon::parse($request->date.' '.$request->end_time);
+            $schedule_appointment->start_date = $request->start_date;
+            $schedule_appointment->end_date = $request->end_date;
+            $schedule_appointment->event_occur = $request->event_occur;
+            $schedule_appointment->reason = $request->reason;
+            $schedule_appointment->appearance_status = 0;
+            $schedule_appointment->event_id = null;
+            $schedule_appointment->form_type = $request->form_type;
+            $schedule_appointment->password =$request->password;
+            $schedule_appointment->save();
+            return back()->with('success','Conflict Request done successfully');
+        } else {
+            return back()->with('warning','You already have an Conflict Request which is not completed yet! Please wait to until it complete.');
         }
     }
     public function index()

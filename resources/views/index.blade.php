@@ -8,7 +8,7 @@
 		RNRC Company Calendar
 	</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -206,12 +206,172 @@
     <!-- <a style="float:right;border:1px; background-color:yellow;padding:5px 2px 5px 2px;margin-top:10px;" href="{{ route('U_admin_panel') }}">Admin Panel</a> -->
     <section class="form_sec">
       <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-7 col-md-7 centerCol"> 
-    <form action="{{ route('U_appointment_schedule') }}">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="tab-container-one">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item active"><a class="nav-link active" href="#home" role="tab" aria-controls="home" data-bs-toggle="tab">Partial Day Conflict Request</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#profile" role="tab" aria-controls="profile" data-bs-toggle="tab">Full Day Conflict Request</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#messages" role="tab" aria-controls="messages" data-bs-toggle="tab">Recur Conflict Request</a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol"> 
+                                <form action="{{ route('U_appointment_schedule') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="form_type" value="1">
+                                <div class="form_head">
+                                <h1>RNRC Partial Day Conflict Form</h1>
+                                <hr>
+                                <!-- <h4><i class="fa-solid fa-eye"></i> ecosunny1324@gmail.com (not shared)<a href="javascript:void(0)"> Switch account</a> <span><i class="fa-solid fa-cloud-arrow-down"></i></span></h4> -->
+                                <!-- <h5>*Required</h5> -->
+                                </div>
+                                
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="exampleInputPassword1">First Name <span>*</span></label>
+                                <input type="text" name="first_name" class="requirements" placeholder="First Name" required id="exampleInputPassword1">
+                                </div>
+                                </div>
+                                
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="exampleInputPassword1">Last Name  <span>*</span></label>
+                                <input type="text" name="last_name" placeholder="Last Name"required id="exampleInputPassword1">
+                                </div>
+                                </div> 
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="">Email Address  <span>*</span></label>
+                                <input type="email" placeholder="Your Email" name="email" required id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                </div>
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="exampleInputEmail1">Date  <span>*</span></label>
+                                <input type="date" name="date" min="{{now()->toDateString('Y-m-d')}}" class="form-control" required id="exampleInputEmail1" >
+                                </div>
+                                </div>
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="">Start Time   <span>*</span></label>
+                                <select name="start_time" id="">
+                                <option value="09:00">09:00 am</option>
+                                <option value="10:00">10:00 am</option>
+                                <option value="11:00">11:00 am</option>
+                                <option value="12:00">12:00 pm</option>
+                                <option value="13:00">01:00 pm</option>
+                                <option value="14:00">02:00 pm</option>
+                                <option value="15:00">03:00 pm</option>
+                                <option value="16:00">04:00 pm</option>
+                                <option value="17:00">05:00 pm</option>
+                                </select>
+                                </div>
+                                </div>
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="">End Time   <span>*</span></label>
+                                <select name="end_time" id="">
+                                <option value="10:00">10:00 am</option>
+                                <option value="11:00">11:00 am</option>
+                                <option value="12:00">12:00 pm</option>
+                                <option value="13:00">01:00 pm</option>
+                                <option value="14:00">02:00 pm</option>
+                                <option value="15:00">03:00 pm</option>
+                                <option value="16:00">04:00 pm</option>
+                                <option value="17:00">05:00 pm</option>
+                                <option value="18:00">06:00 pm</option>
+                                </select>
+                                </div>
+                                </div> 
+                                
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="exampleInputPassword1">Reason For Conflict   <span>*</span></label>
+                                <input type="text" name="reason" required id="exampleInputPassword1">
+                                </div>
+                                </div>
+                                <div class="input_div">
+                                <div class="form-group">
+                                <label for="exampleInputPassword0">Password<span>*</span></label>
+                                <input type="password" name="password" required id="exampleInputPassword0">
+                                </div>
+                                </div>
+                                <!-- <div class="">
+                                <div class="form-group">
+                                <input type="submit" placeholder="" >
+                                </div>
+                                </div> -->
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol"> 
+                            <form action="{{ route('U_full_day_appointment') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="form_type" value="2">
+                            <div class="form_head">
+                            <h1>RNRC Full Day Conflict Form</h1>
+                            <hr>
+                            <!-- <h4><i class="fa-solid fa-eye"></i> ecosunny1324@gmail.com (not shared)<a href="javascript:void(0)"> Switch account</a> <span><i class="fa-solid fa-cloud-arrow-down"></i></span></h4> -->
+                            <!-- <h5>*Required</h5> -->
+                            </div>
+                            
+                            <div class="input_div">
+                            <div class="form-group">
+                            <label for="exampleInputPassword1">First Name <span>*</span></label>
+                            <input type="text" name="first_name" class="requirements" placeholder="First Name" required id="exampleInputPassword1">
+                            </div>
+                            </div>
+                            
+                            <div class="input_div">
+                            <div class="form-group">
+                            <label for="exampleInputPassword1">Last Name  <span>*</span></label>
+                            <input type="text" name="last_name" placeholder="Last Name"required id="exampleInputPassword1">
+                            </div>
+                            </div> 
+                            <div class="input_div">
+                            <div class="form-group">
+                            <label for="">Email Address  <span>*</span></label>
+                            <input type="email" placeholder="Your Email" name="email" required id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            </div>
+                            <div class="input_div">
+                            <div class="form-group">
+                            <label for="exampleInputEmail1">Date  of Conflict<span>*</span></label>
+                            <input type="date" name="date" min="{{now()->toDateString('Y-m-d')}}" class="form-control" required id="exampleInputEmail1" >
+                            </div>
+                            </div>
+                            <div class="input_div">
+                            <div class="form-group">
+                            <label for="exampleInputreason1">Reason For Conflict   <span>*</span></label>
+                            <input type="text" name="reason" required id="exampleInputreason1">
+                            </div>
+                            </div>
+                            <div class="input_div">
+                            <div class="form-group">
+                            <label for="exampleInputPassword1">Password<span>*</span></label>
+                            <input type="password" name="password" required id="exampleInputPassword1">
+                            </div>
+                            </div>
+                            <!-- <div class="">
+                            <div class="form-group">
+                            <input type="submit" placeholder="" >
+                            </div>
+                            </div> -->
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol"> 
+            <form action="{{ route('U_recur_day_appointment') }}" method="post">
             @csrf
+            <input type="hidden" name="form_type" value="3">
             <div class="form_head">
-              <h1>RNRC Form</h1>
+              <h1>RNRC Recurring Conflict Request Form</h1>
               <hr>
               <!-- <h4><i class="fa-solid fa-eye"></i> ecosunny1324@gmail.com (not shared)<a href="javascript:void(0)"> Switch account</a> <span><i class="fa-solid fa-cloud-arrow-down"></i></span></h4> -->
               <!-- <h5>*Required</h5> -->
@@ -236,25 +396,47 @@
                    <input type="email" placeholder="Your Email" name="email" required id="exampleInputEmail1" aria-describedby="emailHelp">
                  </div>
               </div>
-            <div class="input_div">
-                 <div class="form-group">
-                   <label for="exampleInputEmail1">Date  <span>*</span></label>
-                   <input type="date" name="date" min="{{now()->toDateString('Y-m-d')}}" class="form-control" required id="exampleInputEmail1" >
-                 </div>
+              <div class="input_div">
+                  <label for="">Dose the event occur on Weekly or Daily basis  <span>*</span></label>
+                <<div class="form-check">
+                     
+                    <input class="form-check-input" type="radio" value="weekly" name="event_occur" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                    Weekly
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="daily" name="event_occur" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                    Daily
+                    </label>
+                </div>
               </div>
+                <div class="input_div">
+                 <div class="form-group">
+                   <label for="exampleInputEmail1"> Start Date  <span>*</span></label>
+                   <input type="date" name="start_date" min="{{now()->toDateString('Y-m-d')}}" class="form-control" required id="exampleInputEmail1" >
+                 </div>
+                </div>
+                <div class="input_div">
+                 <div class="form-group">
+                   <label for="exampleInputEmail1">End Date  <span>*</span></label>
+                   <input type="date" name="end_date" min="{{now()->toDateString('Y-m-d')}}" class="form-control" required id="exampleInputEmail1" >
+                 </div>
+                </div>
             <div class="input_div">
                  <div class="form-group">
                    <label for="">Start Time   <span>*</span></label>
                    <select name="start_time" id="">
-                   <option value="09:00">09:00</option>
-                    <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="12:00">12:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="16:00">16:00</option>
-                    <option value="17:00">17:00</option>
+                    <option value="09:00">09:00 am</option>
+                    <option value="10:00">10:00 am</option>
+                    <option value="11:00">11:00 am</option>
+                    <option value="12:00">12:00 pm</option>
+                    <option value="13:00">01:00 pm</option>
+                    <option value="14:00">02:00 pm</option>
+                    <option value="15:00">03:00 pm</option>
+                    <option value="16:00">04:00 pm</option>
+                    <option value="17:00">05:00 pm</option>
                    </select>
                  </div>
               </div>
@@ -262,15 +444,15 @@
                  <div class="form-group">
                    <label for="">End Time   <span>*</span></label>
                    <select name="end_time" id="">
-                   <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="12:00">12:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="16:00">16:00</option>
-                    <option value="17:00">17:00</option>
-                    <option value="18:00">18:00</option>
+                    <option value="10:00">10:00 am</option>
+                    <option value="11:00">11:00 am</option>
+                    <option value="12:00">12:00 pm</option>
+                    <option value="13:00">01:00 pm</option>
+                    <option value="14:00">02:00 pm</option>
+                    <option value="15:00">03:00 pm</option>
+                    <option value="16:00">04:00 pm</option>
+                    <option value="17:00">05:00 pm</option>
+                    <option value="18:00">06:00 pm</option>
                    </select>
                  </div>
               </div> 
@@ -289,10 +471,21 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          
         </div>
       </div>
     </section>
 </div>
+
+
+
+
 
 <!-- <div class="main">
 		<input type="button" class="button"value="Partial Day Conflict Request" id="normalEventButton" onClick="normalEventButton.onclick">
@@ -318,3 +511,5 @@
           }
       </script> -->
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

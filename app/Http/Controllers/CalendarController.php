@@ -25,6 +25,7 @@ class CalendarController extends Controller
         /*sending data to google calendar*/
         $event = new Event();
         $event->name = $request->title;
+        $event->description = $request->description;
         // $event->startDateTime = Carbon::parse($request->date,'Asia/Karachi');
         // $event->endDateTime = Carbon::parse($request->date,'Asia/Karachi');
         // $event->endDateTime = Carbon::parse($conflictAppointment->start_time)->addDay();
@@ -37,6 +38,7 @@ class CalendarController extends Controller
 
         $calendar_event = new CalendarEvents();
         $calendar_event->title = $request->title;
+        $calendar_event->description = $request->description;
         $calendar_event->date = $eventData->startDate;;
         $calendar_event->event_id = $eventData->id;
         $calendar_event->status = 0;

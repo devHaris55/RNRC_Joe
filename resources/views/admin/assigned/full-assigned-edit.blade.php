@@ -4,13 +4,13 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
             <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}"><span class="fas fa-home"></span></a></li>
-            <li class="breadcrumb-item"><a href="{{route('admin_assigned')}}">Conflict Request-List</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Conflict Request-Edit</li>
+            <li class="breadcrumb-item"><a href="{{route('admin_assigned')}}">Appointment-List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Appointment-Edit</li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Conflict Request Edit</h1>
+            <h1 class="h4">Appointment Edit</h1>
         </div>
     </div>
 
@@ -54,34 +54,6 @@
                                 <div class="mb-4">
                                     <label for="title">Select date</label>
                                     <input type="date" name="date" min="{{ Carbon\Carbon::now() }}" value="{{ $appointment->date }}" class="form-control" required id="exampleInputEmail1" >
-                                </div>
-                                <div class="mb-4">
-                                <label for="disabledSelect" required class="form-label">Select start time</label>
-                                    <select name="start_time" class="form-select">
-                                        <option {{ $start_time[1] == "09:00:00" ? 'selected' : '' }} value="09:00">09:00</option>
-                                        <option {{ $start_time[1] == "10:00:00" ? 'selected' : '' }} value="10:00">10:00</option>
-                                        <option {{ $start_time[1] == "11:00:00" ? 'selected' : '' }} value="11:00">11:00</option>
-                                        <option {{ $start_time[1] == "12:00:00" ? 'selected' : '' }} value="12:00">12:00</option>
-                                        <option {{ $start_time[1] == "13:00:00" ? 'selected' : '' }} value="13:00">13:00</option>
-                                        <option {{ $start_time[1] == "14:00:00" ? 'selected' : '' }} value="14:00">14:00</option>
-                                        <option {{ $start_time[1] == "15:00:00" ? 'selected' : '' }} value="15:00">15:00</option>
-                                        <option {{ $start_time[1] == "16:00:00" ? 'selected' : '' }} value="16:00">16:00</option>
-                                        <option {{ $start_time[1] == "17:00:00" ? 'selected' : '' }} value="17:00">17:00</option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                <label for="disabledSelect" required class="form-label">Select end time</label>
-                                    <select name="end_time" class="form-select">
-                                        <option {{ $end_time[1] == "10:00:00" ? 'selected' : '' }} value="10:00">10:00</option>
-                                        <option {{ $end_time[1] == "11:00:00" ? 'selected' : '' }} value="11:00">11:00</option>
-                                        <option {{ $end_time[1] == "12:00:00" ? 'selected' : '' }} value="12:00">12:00</option>
-                                        <option {{ $end_time[1] == "13:00:00" ? 'selected' : '' }} value="13:00">13:00</option>
-                                        <option {{ $end_time[1] == "14:00:00" ? 'selected' : '' }} value="14:00">14:00</option>
-                                        <option {{ $end_time[1] == "15:00:00" ? 'selected' : '' }} value="15:00">15:00</option>
-                                        <option {{ $end_time[1] == "16:00:00" ? 'selected' : '' }} value="16:00">16:00</option>
-                                        <option {{ $end_time[1] == "17:00:00" ? 'selected' : '' }} value="17:00">17:00</option>
-                                        <option {{ $end_time[1] == "18:00:00" ? 'selected' : '' }} value="18:00">18:00</option>
-                                    </select>
                                 </div>
                                 <div class="my-4">
                                     <label for="textarea">Reason</label>
