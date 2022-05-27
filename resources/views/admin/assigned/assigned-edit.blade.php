@@ -1,5 +1,24 @@
 @extends('admin.layouts.main')
 @section('content')
+
+<style>
+@media (max-width: 540px) {
+
+
+
+.ml-4 {
+    margin-left: 0 !important;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+    display: none;
+}
+.sidebar-inner h2.h6 {
+    display: none;
+}
+}
+
+</style>
 <div class="py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -15,12 +34,12 @@
     </div>
 
     <div class="row">
-        <div class="col-5 mb-4 ml-4">
+        <div class="col-ms-5 col-sm-5 mb-4 ml-4 col-xs-12">
             <div class="card border-light shadow-sm components-section">
                 <div class="card-body">
                     <div class="row mb-4">
 
-                        <div class="col-lg-12 col-sm-12">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
                             <!-- Form -->
                             @if(Session::has('success'))
                                 <div class="alert alert-warning mb-4" id="success-alert">

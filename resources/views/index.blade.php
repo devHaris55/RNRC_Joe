@@ -160,7 +160,17 @@
     float: left;
 }
 
-.main{ padding:0;}
+.main {
+    padding: 40px;
+}
+.form_sec .nav-tabs {
+    border-bottom: 0 ;
+}
+.nav {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
        </style>
 </head>
 
