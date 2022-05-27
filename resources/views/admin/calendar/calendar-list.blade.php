@@ -35,6 +35,7 @@
                     <tr>
                         <th class="border-0">#</th>
                         <th class="border-0">Title</th>
+                        <th class="border-0">Description</th>
                         <th class="border-0">Date</th>
                         <th class="border-0">Action</th>
                     </tr>
@@ -46,6 +47,7 @@
                             <tr>
                                 <td class="border-0"><a href="#" class="text-primary font-weight-bold">{{$key+1}}</a> </td>
                                 <td class="border-0 font-weight-bold">{{ $calendar->title }}</td>
+                                <td class="border-0 font-weight-bold">{{ $calendar->description }}</td>
                                 <td class="border-0 font-weight-bold">{{ $calendar->date }}</td>
                                 <td class="border-0">
                                     <!-- <a href="{{route('admin_calendar_add')}}" class="text-secondary mr-3"><i class="fas fa-edit"></i>Edit</a>

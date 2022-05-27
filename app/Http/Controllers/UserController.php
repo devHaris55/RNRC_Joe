@@ -35,7 +35,7 @@ class UserController extends Controller
             $schedule_appointment->appearance_status = 0;
             $schedule_appointment->event_id = null;
             $schedule_appointment->form_type = $request->form_type;
-            $schedule_appointment->password =$request->password;
+            // $schedule_appointment->password =$request->password;
             $schedule_appointment->save();
             // Appointment -> Conflict Request
             return back()->with('success','Conflict Request done successfully');
@@ -101,7 +101,7 @@ class UserController extends Controller
             $schedule_appointment->appearance_status = 0;
             $schedule_appointment->event_id = null;
             $schedule_appointment->form_type = $request->form_type;
-            $schedule_appointment->password =$request->password;
+            // $schedule_appointment->password =$request->password;
             $schedule_appointment->save();
             return back()->with('success','Conflict Request done successfully');
         } else {

@@ -59,12 +59,12 @@ function active($current_page){
               <span>Un-Assign Appointment</span>
           </a>
         </li> -->
-        <li class="nav-item {{ active('cancelled-list') . active('cancelled-add') . active('cancelled-edit') }}">
+        <!-- <li class="nav-item {{ active('cancelled-list') . active('cancelled-add') . active('cancelled-edit') }}">
           <a href="{{route('admin_cancelled')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-images"></span></span>
               <span>Cancelled Conflict Requests</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item {{ active('calendar-list') . active('calendar-add') . active('calendar-edit') }}">
           <a href="{{route('admin_calendar')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-images"></span></span>

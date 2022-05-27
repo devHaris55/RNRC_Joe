@@ -212,7 +212,7 @@
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item active"><a class="nav-link active" href="#home" role="tab" aria-controls="home" data-bs-toggle="tab">Partial Day Conflict Request</a></li>
                         <li class="nav-item"><a class="nav-link" href="#profile" role="tab" aria-controls="profile" data-bs-toggle="tab">Full Day Conflict Request</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#messages" role="tab" aria-controls="messages" data-bs-toggle="tab">Recur Conflict Request</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#messages" role="tab" aria-controls="messages" data-bs-toggle="tab">Recurring Conflict Request</a></li>
 
                     </ul>
                     <div class="tab-content">
@@ -257,15 +257,15 @@
                                 <div class="form-group">
                                 <label for="">Start Time   <span>*</span></label>
                                 <select name="start_time" id="">
-                                <option value="09:00">09:00 am</option>
-                                <option value="10:00">10:00 am</option>
-                                <option value="11:00">11:00 am</option>
-                                <option value="12:00">12:00 pm</option>
-                                <option value="13:00">01:00 pm</option>
-                                <option value="14:00">02:00 pm</option>
-                                <option value="15:00">03:00 pm</option>
-                                <option value="16:00">04:00 pm</option>
-                                <option value="17:00">05:00 pm</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">01:00 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                                <option value="17:00">05:00 PM</option>
                                 </select>
                                 </div>
                                 </div>
@@ -273,15 +273,15 @@
                                 <div class="form-group">
                                 <label for="">End Time   <span>*</span></label>
                                 <select name="end_time" id="">
-                                <option value="10:00">10:00 am</option>
-                                <option value="11:00">11:00 am</option>
-                                <option value="12:00">12:00 pm</option>
-                                <option value="13:00">01:00 pm</option>
-                                <option value="14:00">02:00 pm</option>
-                                <option value="15:00">03:00 pm</option>
-                                <option value="16:00">04:00 pm</option>
-                                <option value="17:00">05:00 pm</option>
-                                <option value="18:00">06:00 pm</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">01:00 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                                <option value="17:00">05:00 PM</option>
+                                <option value="18:00">06:00 PM</option>
                                 </select>
                                 </div>
                                 </div> 
@@ -292,12 +292,12 @@
                                 <input type="text" name="reason" required id="exampleInputPassword1">
                                 </div>
                                 </div>
-                                <div class="input_div">
+                                <!-- <div class="input_div">
                                 <div class="form-group">
                                 <label for="exampleInputPassword0">Password<span>*</span></label>
                                 <input type="password" name="password" required id="exampleInputPassword0">
                                 </div>
-                                </div>
+                                </div> -->
                                 <!-- <div class="">
                                 <div class="form-group">
                                 <input type="submit" placeholder="" >
@@ -350,12 +350,12 @@
                             <input type="text" name="reason" required id="exampleInputreason1">
                             </div>
                             </div>
-                            <div class="input_div">
+                            <!-- <div class="input_div">
                             <div class="form-group">
                             <label for="exampleInputPassword1">Password<span>*</span></label>
                             <input type="password" name="password" required id="exampleInputPassword1">
                             </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="">
                             <div class="form-group">
                             <input type="submit" placeholder="" >
@@ -428,15 +428,15 @@
                  <div class="form-group">
                    <label for="">Start Time   <span>*</span></label>
                    <select name="start_time" id="">
-                    <option value="09:00">09:00 am</option>
-                    <option value="10:00">10:00 am</option>
-                    <option value="11:00">11:00 am</option>
-                    <option value="12:00">12:00 pm</option>
-                    <option value="13:00">01:00 pm</option>
-                    <option value="14:00">02:00 pm</option>
-                    <option value="15:00">03:00 pm</option>
-                    <option value="16:00">04:00 pm</option>
-                    <option value="17:00">05:00 pm</option>
+                    <option value="09:00">09:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">01:00 PM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="15:00">03:00 PM</option>
+                    <option value="16:00">04:00 PM</option>
+                    <option value="17:00">05:00 PM</option>
                    </select>
                  </div>
               </div>
@@ -444,15 +444,15 @@
                  <div class="form-group">
                    <label for="">End Time   <span>*</span></label>
                    <select name="end_time" id="">
-                    <option value="10:00">10:00 am</option>
-                    <option value="11:00">11:00 am</option>
-                    <option value="12:00">12:00 pm</option>
-                    <option value="13:00">01:00 pm</option>
-                    <option value="14:00">02:00 pm</option>
-                    <option value="15:00">03:00 pm</option>
-                    <option value="16:00">04:00 pm</option>
-                    <option value="17:00">05:00 pm</option>
-                    <option value="18:00">06:00 pm</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">01:00 PM</option>
+                    <option value="14:00">02:00 PM</option>
+                    <option value="15:00">03:00 PM</option>
+                    <option value="16:00">04:00 PM</option>
+                    <option value="17:00">05:00 PM</option>
+                    <option value="18:00">06:00 PM</option>
                    </select>
                  </div>
               </div> 

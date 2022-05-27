@@ -75,29 +75,29 @@
                                 <div class="mb-4">
                                 <label for="disabledSelect" required class="form-label">Select start time</label>
                                     <select name="start_time" class="form-select">
-                                        <option {{ $start_time[1] == "09:00:00" ? 'selected' : '' }} value="09:00">09:00</option>
-                                        <option {{ $start_time[1] == "10:00:00" ? 'selected' : '' }} value="10:00">10:00</option>
-                                        <option {{ $start_time[1] == "11:00:00" ? 'selected' : '' }} value="11:00">11:00</option>
-                                        <option {{ $start_time[1] == "12:00:00" ? 'selected' : '' }} value="12:00">12:00</option>
-                                        <option {{ $start_time[1] == "13:00:00" ? 'selected' : '' }} value="13:00">13:00</option>
-                                        <option {{ $start_time[1] == "14:00:00" ? 'selected' : '' }} value="14:00">14:00</option>
-                                        <option {{ $start_time[1] == "15:00:00" ? 'selected' : '' }} value="15:00">15:00</option>
-                                        <option {{ $start_time[1] == "16:00:00" ? 'selected' : '' }} value="16:00">16:00</option>
-                                        <option {{ $start_time[1] == "17:00:00" ? 'selected' : '' }} value="17:00">17:00</option>
+                                        <option {{ $start_time[1] == "09:00:00" ? 'selected' : '' }} value="09:00">09:00 AM</option>
+                                        <option {{ $start_time[1] == "10:00:00" ? 'selected' : '' }} value="10:00">10:00 AM</option>
+                                        <option {{ $start_time[1] == "11:00:00" ? 'selected' : '' }} value="11:00">11:00 AM</option>
+                                        <option {{ $start_time[1] == "12:00:00" ? 'selected' : '' }} value="12:00">12:00 PM</option>
+                                        <option {{ $start_time[1] == "13:00:00" ? 'selected' : '' }} value="13:00">01:00 PM</option>
+                                        <option {{ $start_time[1] == "14:00:00" ? 'selected' : '' }} value="14:00">02:00 PM</option>
+                                        <option {{ $start_time[1] == "15:00:00" ? 'selected' : '' }} value="15:00">03:00 PM</option>
+                                        <option {{ $start_time[1] == "16:00:00" ? 'selected' : '' }} value="16:00">04:00 PM</option>
+                                        <option {{ $start_time[1] == "17:00:00" ? 'selected' : '' }} value="17:00">05:00 PM</option>
                                     </select>
                                 </div>
                                 <div class="mb-4">
                                 <label for="disabledSelect" required class="form-label">Select end time</label>
                                     <select name="end_time" class="form-select">
-                                        <option {{ $end_time[1] == "10:00:00" ? 'selected' : '' }} value="10:00">10:00</option>
-                                        <option {{ $end_time[1] == "11:00:00" ? 'selected' : '' }} value="11:00">11:00</option>
-                                        <option {{ $end_time[1] == "12:00:00" ? 'selected' : '' }} value="12:00">12:00</option>
-                                        <option {{ $end_time[1] == "13:00:00" ? 'selected' : '' }} value="13:00">13:00</option>
-                                        <option {{ $end_time[1] == "14:00:00" ? 'selected' : '' }} value="14:00">14:00</option>
-                                        <option {{ $end_time[1] == "15:00:00" ? 'selected' : '' }} value="15:00">15:00</option>
-                                        <option {{ $end_time[1] == "16:00:00" ? 'selected' : '' }} value="16:00">16:00</option>
-                                        <option {{ $end_time[1] == "17:00:00" ? 'selected' : '' }} value="17:00">17:00</option>
-                                        <option {{ $end_time[1] == "18:00:00" ? 'selected' : '' }} value="18:00">18:00</option>
+                                        <option {{ $end_time[1] == "10:00:00" ? 'selected' : '' }} value="10:00">10:00 AM</option>
+                                        <option {{ $end_time[1] == "11:00:00" ? 'selected' : '' }} value="11:00">11:00 AM</option>
+                                        <option {{ $end_time[1] == "12:00:00" ? 'selected' : '' }} value="12:00">12:00 PM</option>
+                                        <option {{ $end_time[1] == "13:00:00" ? 'selected' : '' }} value="13:00">01:00 PM</option>
+                                        <option {{ $end_time[1] == "14:00:00" ? 'selected' : '' }} value="14:00">02:00 PM</option>
+                                        <option {{ $end_time[1] == "15:00:00" ? 'selected' : '' }} value="15:00">03:00 PM</option>
+                                        <option {{ $end_time[1] == "16:00:00" ? 'selected' : '' }} value="16:00">04:00 PM</option>
+                                        <option {{ $end_time[1] == "17:00:00" ? 'selected' : '' }} value="17:00">05:00 PM</option>
+                                        <option {{ $end_time[1] == "18:00:00" ? 'selected' : '' }} value="18:00">06:00 PM</option>
                                     </select>
                                 </div>
                                 <div class="my-4">
