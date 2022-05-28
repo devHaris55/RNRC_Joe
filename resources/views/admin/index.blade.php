@@ -73,7 +73,7 @@
                                               Remember me
                                             </label>
                                         </div> --}}
-                                        <div><a href="#" class="small text-right">Lost password?</a></div>
+                                        <!-- <div><a href="#" class="small text-right">Lost password?</a></div> -->
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-block btn-primary">Sign in</button>

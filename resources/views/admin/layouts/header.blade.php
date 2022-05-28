@@ -26,12 +26,12 @@ function active($current_page){
     <div class="sidebar-inner px-4 pt-3">
       <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
         <div class="d-flex align-items-center">
-          <div class="user-avatar lg-avatar mr-4">
+          <!-- <div class="user-avatar lg-avatar mr-4">
             <img src="{{asset('admin/assets/img/team/profile-picture-3.jpg')}}" class="card-img-top rounded-circle border-white" alt="Bonnie Green">
-          </div>
+          </div> -->
           <div class="d-block">
-            <h2 class="h6">Hi, Jane</h2>
-            <a href="#" class="btn btn-secondary text-dark btn-xs"><span class="mr-2"><span class="fas fa-sign-out-alt"></span></span>Sign Out</a>
+            <!-- <h2 class="h6">Hi, Jane</h2> -->
+            <a href="{{route('admin_logout')}}" class="btn btn-secondary text-dark btn-xs"><span class="mr-2"><span class="fas fa-sign-out-alt"></span></span>Sign Out</a>
           </div>
         </div>
         <div class="collapse-close d-md-none">

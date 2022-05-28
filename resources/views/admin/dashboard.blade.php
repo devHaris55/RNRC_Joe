@@ -10,8 +10,8 @@
                     <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
                         <div class="icon icon-shape icon-md icon-shape-blue rounded mr-4 mr-sm-0"><span class="fas fa-chart-line"></span></div>
                         <div class="d-sm-none">
-                            <h2 class="h5">Customers</h2>
-                            <h3 class="mb-1">345,678</h3>
+                            <h2 class="h5">Assigned Conflict Requests</h2>
+                            <h3 class="mb-1">{{ $assigned}}</h3>
                         </div>
                     </div>
                     <div class="col-12 col-xl-7 px-xl-0">
@@ -56,8 +56,8 @@
                     <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
                         <div class="icon icon-shape icon-md icon-shape-blue rounded mr-4 mr-sm-0"><span class="fas fa-chart-line"></span></div>
                         <div class="d-sm-none">
-                            <h2 class="h5">Customers</h2>
-                            <h3 class="mb-1">345,678</h3>
+                            <h2 class="h5">Calendar Events</h2>
+                            <h3 class="mb-1">{{ $calendar_events }}</h3>
                         </div>
                     </div>
                     <div class="col-12 col-xl-7 px-xl-0">
