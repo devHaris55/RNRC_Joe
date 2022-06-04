@@ -50,6 +50,7 @@ Route::get('/admin/calendar-delete/{id?}', [CalendarController::class, 'delete_c
 Route::get('/admin/dashboard', [AdminBannerController::class, 'dashboard'])->name('admin_dashboard');
 
 Route::get('/admin/assigned-appointment-list', [AdminController::class, 'assignedIndex'])->name('admin_assigned');
+//appperance_status 1
 Route::get('/admin/rejected-appointment-list', [AdminController::class, 'rejectedIndex'])->name('admin_rejected');
 Route::get('/admin/appointment-edit/{id?}', [AdminController::class, 'appointment_edit'])->name('admin_assigned_edit');
 Route::post('/admin/appointment-add-edit/{id?}', [AdminController::class, 'update_appointment'])->name('admin_assigned_add_edit');
