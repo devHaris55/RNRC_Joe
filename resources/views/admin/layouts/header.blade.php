@@ -53,6 +53,12 @@ function active($current_page){
               <span>Assign Conflict Requests</span>
           </a>
         </li>
+        <li class="nav-item {{ active('rejected-list') . active('assigned-add') . active('assigned-edit') }}">
+          <a href="{{route('admin_rejected')}}" class="nav-link">
+              <span class="sidebar-icon"><span class="far fa-images"></span></span>
+              <span>Rejected Conflict Requests</span>
+          </a>
+        </li>
         <!-- <li class="nav-item {{ active('un_assigned-list') . active('un_assigned-add') . active('un_assigned-edit') }}">
           <a href="{{route('admin_un_assigned')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-images"></span></span>

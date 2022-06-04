@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        
+
 <meta charset="utf-16" />
 <style>
 
@@ -68,7 +68,7 @@
             color: #0c3df3;
             font-weight: 500;
             font-size: 16px;
-        } 
+        }
 
         .form_head h5 {
               font-family: 'Poppins', Sans-Serif;
@@ -91,7 +91,7 @@
             padding: 24px;
             padding-top: 22px;
             position: relative;
-            label 
+            label
 
 
           }
@@ -110,13 +110,13 @@
               text-align: left;
           }
 
-          .input_div  input[type="text"], 
-          .input_div  input[type="password"], 
+          .input_div  input[type="text"],
+          .input_div  input[type="password"],
           .input_div select,
           .input_div  input[type="email"],
-          .input_div  input[type="url"], 
-          .input_div  input[type="number"], 
-          .input_div  textarea, 
+          .input_div  input[type="url"],
+          .input_div  input[type="number"],
+          .input_div  textarea,
           .input_div  input[type="password"],
           .input_div  input[type="date"],
           .input_div  input[type="time"]
@@ -227,7 +227,7 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol"> 
+                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol">
                                 <form action="{{ route('U_appointment_schedule') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="form_type" value="1">
@@ -237,20 +237,20 @@
                                 <!-- <h4><i class="fa-solid fa-eye"></i> ecosunny1324@gmail.com (not shared)<a href="javascript:void(0)"> Switch account</a> <span><i class="fa-solid fa-cloud-arrow-down"></i></span></h4> -->
                                 <!-- <h5>*Required</h5> -->
                                 </div>
-                                
+
                                 <div class="input_div">
                                 <div class="form-group">
                                 <label for="exampleInputPassword1">First Name <span>*</span></label>
                                 <input type="text" name="first_name" class="requirements" placeholder="First Name" required id="exampleInputPassword1">
                                 </div>
                                 </div>
-                                
+
                                 <div class="input_div">
                                 <div class="form-group">
                                 <label for="exampleInputPassword1">Last Name  <span>*</span></label>
                                 <input type="text" name="last_name" placeholder="Last Name"required id="exampleInputPassword1">
                                 </div>
-                                </div> 
+                                </div>
                                 <div class="input_div">
                                 <div class="form-group">
                                 <label for="">Email Address  <span>*</span></label>
@@ -294,8 +294,8 @@
                                 <option value="18:00">06:00 PM</option>
                                 </select>
                                 </div>
-                                </div> 
-                                
+                                </div>
+
                                 <div class="input_div">
                                 <div class="form-group">
                                 <label for="exampleInputPassword1">Reason For Conflict   <span>*</span></label>
@@ -318,7 +318,7 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol"> 
+                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol">
                             <form action="{{ route('U_full_day_appointment') }}" method="post">
                             @csrf
                             <input type="hidden" name="form_type" value="2">
@@ -328,20 +328,20 @@
                             <!-- <h4><i class="fa-solid fa-eye"></i> ecosunny1324@gmail.com (not shared)<a href="javascript:void(0)"> Switch account</a> <span><i class="fa-solid fa-cloud-arrow-down"></i></span></h4> -->
                             <!-- <h5>*Required</h5> -->
                             </div>
-                            
+
                             <div class="input_div">
                             <div class="form-group">
                             <label for="exampleInputPassword1">First Name <span>*</span></label>
                             <input type="text" name="first_name" class="requirements" placeholder="First Name" required id="exampleInputPassword1">
                             </div>
                             </div>
-                            
+
                             <div class="input_div">
                             <div class="form-group">
                             <label for="exampleInputPassword1">Last Name  <span>*</span></label>
                             <input type="text" name="last_name" placeholder="Last Name"required id="exampleInputPassword1">
                             </div>
-                            </div> 
+                            </div>
                             <div class="input_div">
                             <div class="form-group">
                             <label for="">Email Address  <span>*</span></label>
@@ -376,7 +376,7 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol"> 
+                            <div class="col-xs-12 col-sm-7 col-md-7 centerCol">
             <form action="{{ route('U_recur_day_appointment') }}" method="post">
             @csrf
             <input type="hidden" name="form_type" value="3">
@@ -399,7 +399,7 @@
                    <label for="exampleInputPassword1">Last Name  <span>*</span></label>
                     <input type="text" name="last_name" placeholder="Last Name"required id="exampleInputPassword1">
                  </div>
-              </div> 
+              </div>
             <div class="input_div">
                  <div class="form-group">
                    <label for="">Email Address  <span>*</span></label>
@@ -409,7 +409,7 @@
               <div class="input_div">
                   <label for="">Dose the event occur on Weekly or Daily basis  <span>*</span></label>
                 <<div class="form-check">
-                     
+
                     <input class="form-check-input" type="radio" value="weekly" name="event_occur" id="flexRadioDefault1">
                     <label class="form-check-label" for="flexRadioDefault1">
                     Weekly
@@ -465,8 +465,8 @@
                     <option value="18:00">06:00 PM</option>
                    </select>
                  </div>
-              </div> 
-            
+              </div>
+
               <div class="input_div">
                  <div class="form-group">
                    <label for="exampleInputPassword1">Reason For Conflict   <span>*</span></label>
@@ -487,7 +487,7 @@
             </div>
         </div>
         <div class="row">
-          
+
         </div>
       </div>
     </section>
