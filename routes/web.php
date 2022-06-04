@@ -48,7 +48,7 @@ Route::get('/admin/calendar-delete/{id?}', [CalendarController::class, 'delete_c
 
 //Dashboard
 Route::get('/admin/dashboard', [AdminBannerController::class, 'dashboard'])->name('admin_dashboard');
-
+//appperance_status 0
 Route::get('/admin/assigned-appointment-list', [AdminController::class, 'assignedIndex'])->name('admin_assigned');
 //appperance_status 1
 Route::get('/admin/rejected-appointment-list', [AdminController::class, 'rejectedIndex'])->name('admin_rejected');
