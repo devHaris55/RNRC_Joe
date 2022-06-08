@@ -98,8 +98,8 @@ class AdminAuthController extends Controller
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
-        $user->user_role = $request->user_role;
-        $user->status = $request->status;
+        // $user->user_role = $request->user_role;
+        // $user->status = $request->status;
         $user->save();
         if ($create == 0) {
             return back()->with('update', 'Updated Successfully');
