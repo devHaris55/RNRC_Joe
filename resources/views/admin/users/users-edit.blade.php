@@ -3,14 +3,16 @@
     <div class="py-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                <li class="breadcrumb-item"><a href="{{route('admin_dashboard')}}"><span class="fas fa-home"></span></a></li>
-                <li class="breadcrumb-item"><a href="{{route('admin_users')}}">Blog-List</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Blog-Edit</li>
+                <li class="breadcrumb-item"><a href="{{ route('admin_dashboard') }}"><span
+                            class="fas fa-home"></span></a>
+                </li>
+                <li class="breadcrumb-item"><a href="{{ route('admin_users') }}">User-List</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User-Edit</li>
             </ol>
         </nav>
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Blog Edit</h1>
+                <h1 class="h4">User Edit</h1>
             </div>
         </div>
 
@@ -22,21 +24,24 @@
 
                             <div class="col-lg-12 col-sm-12">
                                 <!-- Form -->
-                                @if(Session::has('update'))
+                                @if (Session::has('update'))
                                     <div class="alert alert-warning mb-4" id="success-alert">
-                                        <center><span class="text-white">{{Session::get('update')}}</span></center>
+                                        <center><span class="text-white">{{ Session::get('update') }}</span></center>
                                     </div>
                                 @endif
-                                <form action="{{route('admin_users_add_edit').'/'.$user->id}}" method="POST" enctype="multipart/form-data">@csrf
+                                <form action="{{ route('admin_users_add_edit') . '/' . $user->id }}" method="POST"
+                                    enctype="multipart/form-data">@csrf
                                     <div class="mb-4">
                                         <label for="title">Username</label>
-                                        <input type="text" class="form-control" required value="{{$user->username}}" name="username">
+                                        <input type="text" class="form-control" required value="{{ $user->username }}"
+                                            name="username">
                                     </div>
                                     <div class="my-4">
                                         <label for="textarea">Email</label>
-                                        <input type="email" class="form-control" required value="{{$user->email}}" name="email">
+                                        <input type="email" class="form-control" required value="{{ $user->email }}"
+                                            name="email">
                                     </div>
-                                    <div class="mb-4">
+                                    {{-- <div class="mb-4">
                                         <label class="my-1 mr-2" for="country">User Role</label>
                                         <select class="form-select" id="user_role" name="user_role">
                                             <option selected hidden disabled>Select Role</option>
@@ -60,7 +65,7 @@
                                                 Inactive
                                             </label>
                                         </div>
-                                    </fieldset>
+                                    </fieldset> --}}
                                     <div class="my-4">
                                         <button class="btn btn-pill btn-outline-success" type="submit">Submit</button>
                                     </div>

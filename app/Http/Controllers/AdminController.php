@@ -21,13 +21,13 @@ class AdminController extends Controller
 
     public function assignedIndex()
     {
-        $data['assigned'] = Appointments::with('getevent')->where('appearance_status', 0)->get();
+        $data['assigned'] = Appointments::with('getevent')->where('appearance_status', 0)->orderBy('date', 'desc')->get();
 
         return view('admin.assigned.assigned-list', $data);
     }
     public function rejectedIndex()
     {
-        $data['assigned'] = Appointments::with('getevent')->where('appearance_status', 1)->get();
+        $data['assigned'] = Appointments::with('getevent')->where('appearance_status', 1)->orderBy('date', 'desc')->get();
 
         return view('admin.assigned.rejected-list', $data);
     }
@@ -60,37 +60,32 @@ class AdminController extends Controller
         $data['un_assigned'] = Appointments::where('appearance_status', 1)->get();
         $data['cancelled'] = Appointments::where('appearance_status', 2)->get();
         // Appointments -> Conflict Request
-        return view('admin.cancelled.cancelled-list', $data)->with('error','Conflict Request Cancelled successfully');
+        return view('admin.cancelled.cancelled-list', $data)->with('error', 'Conflict Request Cancelled successfully');
     }
 
     public function appointment_edit(Appointments $id)
     {
-        $event = CalendarEvents::where('status',1)->get();
+        $event = CalendarEvents::where('status', 1)->get();
         $data['event'] = $event;
-        if($id->form_type==1)
-        {
+        if ($id->form_type == 1) {
             $data['appointment'] = $id;
             //To select the value in dropdown
-            $data['start_time'] = explode(' ',$id->start_time);
-            $data['end_time'] = explode(' ',$id->end_time);
-            return view('admin.assigned.assigned-edit', $data)->with('success','Conflict Request Edited successfully');
+            $data['start_time'] = explode(' ', $id->start_time);
+            $data['end_time'] = explode(' ', $id->end_time);
+            return view('admin.assigned.assigned-edit', $data)->with('success', 'Conflict Request Edited successfully');
         }
-        if($id->form_type==2)
-        {
+        if ($id->form_type == 2) {
 
             $data['appointment'] = $id;
-            return view('admin.assigned.full-assigned-edit', $data)->with('success','Conflict Request Edited successfully');
+            return view('admin.assigned.full-assigned-edit', $data)->with('success', 'Conflict Request Edited successfully');
         }
-        if($id->form_type==3)
-        {
+        if ($id->form_type == 3) {
 
             $data['appointment'] = $id;
-            $data['start_time'] = explode(' ',$id->start_time);
-            $data['end_time'] = explode(' ',$id->end_time);
-            return view('admin.assigned.recur-assigned-edit', $data)->with('success','Conflict Request Edited successfully');
+            $data['start_time'] = explode(' ', $id->start_time);
+            $data['end_time'] = explode(' ', $id->end_time);
+            return view('admin.assigned.recur-assigned-edit', $data)->with('success', 'Conflict Request Edited successfully');
         }
-
-
     }
 
     public function update_appointment(Request $request, Appointments $id)
@@ -98,31 +93,27 @@ class AdminController extends Controller
 
 
         //if Appointment belongs to Canceled appointment ----------------------------------------------------------
-        if($id->form_type == 1)
-        {
+        if ($id->form_type == 1) {
 
-            $req_start_date = Carbon::parse($request->date. ''. $request->start_time);
-            $req_end_date = Carbon::parse($request->date. ''. $request->end_time);
+            $req_start_date = Carbon::parse($request->date . '' . $request->start_time);
+            $req_end_date = Carbon::parse($request->date . '' . $request->end_time);
             $req_hours = $req_start_date->diffInHours($req_end_date);
             /*sending data to Appointments table*/
             $id->first_name = $request->first_name;
             $id->last_name = $request->last_name;
             $id->email = $request->email;
             $id->date = $request->date;
-            $id->start_time = Carbon::parse($request->date.' '.$request->start_time);
-            $id->end_time = Carbon::parse($request->date.' '.$request->end_time);
+            $id->start_time = Carbon::parse($request->date . ' ' . $request->start_time);
+            $id->end_time = Carbon::parse($request->date . ' ' . $request->end_time);
             $id->reason = $request->reason;
-            $id->appearance_status = 0;
+            $id->appearance_status = $request->appearance_status;
             $id->event_id = $request->event_id;
             $id->form_type = $request->form_type;
-            $id->password =$request->password;
+            $id->password = $request->password;
             $id->save();
-            return back()->with('success','Conflict Request Edited successfully');
-
-
+            return back()->with('success', 'Conflict Request Edited successfully');
         }
-        if($id->form_type == 2)
-        {
+        if ($id->form_type == 2) {
 
 
             /*sending data to Appointments table*/
@@ -131,19 +122,15 @@ class AdminController extends Controller
             $id->email = $request->email;
             $id->date = $request->date;
             $id->reason = $request->reason;
-            $id->appearance_status = 0;
+            $id->appearance_status = $request->appearance_status;
             $id->event_id = $request->event_id;
             $id->form_type = $request->form_type;
             $id->save();
 
-            return back()->with('success','Conflict Request Edited successfully');
-
-
-        }
-        else if($id->form_type == 3)
-        {
-                  $req_start_date = Carbon::parse($request->date. ''. $request->start_time);
-            $req_end_date = Carbon::parse($request->date. ''. $request->end_time);
+            return back()->with('success', 'Conflict Request Edited successfully');
+        } else if ($id->form_type == 3) {
+            $req_start_date = Carbon::parse($request->date . '' . $request->start_time);
+            $req_end_date = Carbon::parse($request->date . '' . $request->end_time);
             $req_hours = $req_start_date->diffInHours($req_end_date);
             /*sending data to Appointments table*/
             $id->first_name = $request->first_name;
@@ -151,22 +138,17 @@ class AdminController extends Controller
             $id->email = $request->email;
             $id->start_date = $request->start_date;
             $id->end_date = $request->end_date;
-            $id->event_occur= $request->event_occur;
-            $id->start_time = Carbon::parse($request->date.' '.$request->start_time);
-            $id->end_time = Carbon::parse($request->date.' '.$request->end_time);
+            $id->event_occur = $request->event_occur;
+            $id->start_time = Carbon::parse($request->date . ' ' . $request->start_time);
+            $id->end_time = Carbon::parse($request->date . ' ' . $request->end_time);
             $id->reason = $request->reason;
-            $id->appearance_status = 0;
+            $id->appearance_status = $request->appearance_status;
             $id->event_id = $request->event_id;;
             $id->form_type = $request->form_type;
             $id->save();
-            return back()->with('success','Conflict Request Edited successfully');
+            return back()->with('success', 'Conflict Request Edited successfully');
+        } else {
+            return back()->with('warning', 'We already have an Conflict Request with this EMAIL which is not completed yet.');
         }
-
-
-       else
-       {
-        return back()->with('warning','We already have an Conflict Request with this EMAIL which is not completed yet.');
-       }
-
     }
 }
