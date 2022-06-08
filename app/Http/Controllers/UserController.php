@@ -16,11 +16,6 @@ class UserController extends EmailController
         $req_end_date = Carbon::parse($request->date . '' . $request->end_time);
         $req_hours = $req_start_date->diffInHours($req_end_date);
 
-        //----------------------------------------------------- to delete ---------------------------
-        $calendar_event = CalendarEvents::where('date', $request->date)->first();
-        dd($calendar_event);
-        //----------------------------------------------------- to delete ---------------------------
-
         /*sending data to Appointments table*/
         $schedule_appointment = new Appointments();
         $schedule_appointment->first_name = $request->first_name;
